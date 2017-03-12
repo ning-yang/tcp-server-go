@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"time"
 )
 
 var addr = flag.String("addr", ":1818", "learn to address:port")
@@ -41,7 +42,10 @@ func main() {
 
 // Handles incoming requests.
 func handleRequest(conn net.Conn, reply string) {
-	fmt.Println("Handing connection from - ", conn.RemoteAddr())
+	fmt.Println(
+		time.Now().UTC().Format("2006-01-02 15:04:05"),
+		": Handing connection from - ",
+		conn.RemoteAddr())
 	conn.Write([]byte(reply))
 	conn.Close()
 }
