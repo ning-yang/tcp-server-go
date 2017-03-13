@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-var addr = flag.String("addr", ":1818", "learn to address:port")
+var addr = flag.String("addr", ":1817", "learn to address:port")
 
 func main() {
 	flag.Parse()
@@ -44,7 +44,7 @@ func main() {
 func handleRequest(conn net.Conn, reply string) {
 	fmt.Println(
 		time.Now().UTC().Format("2006-01-02 15:04:05"),
-		": Hanlding connection from - ",
+		": Handling connection from - ",
 		conn.RemoteAddr())
 	conn.Write([]byte(reply))
 	conn.Close()
