@@ -44,7 +44,7 @@ func main() {
 func handleRequest(conn net.Conn, reply string) {
 	fmt.Println(
 		time.Now().UTC().Format("2006-01-02 15:04:05"),
-		": Handing connection from - ",
+		": Hanlding connection from - ",
 		conn.RemoteAddr())
 	conn.Write([]byte(reply))
 	conn.Close()
